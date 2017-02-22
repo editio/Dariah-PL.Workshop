@@ -6,7 +6,7 @@ Exercise-2-Lope-Soneto-Normalization;
 
 Exercise-3-Lope-Readings.
 
-[Exercises](https://github.com/editio/slides/tree/gh-pages/workshop/materials/)
+[Exercises](https://github.com/editio/TEI-Workshop/tree/master/materials)
 
 ## License
 
