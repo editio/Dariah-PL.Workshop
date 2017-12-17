@@ -26,7 +26,7 @@
             <listWit>
                <witness xml:id="wit-1965-PL">1965-PL</witness>
                <witness xml:id="wit-1617-O">1617-O</witness>
-            </listWit>
+            </listWit>            
          </sourceDesc>
       </fileDesc>
    </teiHeader>

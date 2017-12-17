@@ -1,0 +1,148 @@
+José Luis Losada: Digital Scholary Edition materials (Wrocław)
+ 
+EXERCISE 5 - INSTRUCTIONS: 
+
+// TOOL (Creating a new TEI-XML File).
+
+- Follow the steps as in exercise 1.
+
+// TRANSCRIPTION (part 1)
+
+Take into consideration some of the steps from previous exercises.
+
+- Transcribe from the 1st page of “5_0.Soneto-acrostico-1685.pdf”.
+- For the moment transcribe only the poem, not the paratexts. You need to decide with which verse line the poem starts. This is an acrostic poem, a composition in which the first letters in each line form a word or a phrase.  
+- Although as editors we could argue whether to add to the transcription of each verse the last letter A or not, I recommend you to add it.
+
+
+// ENCODING (part 1).
+
+Take into consideration some of the steps from previous exercises.
+
+- You are encoding again a sonnet, so you need to add <l>, <lg>, attributes, etc. Do not care now about the appearance, encode just the typical sonnet structure.
+
+
+// ENCODING METADATA (part 1: <rendition>).
+
+In order to record the particular appearance of the source text, i.e., radial design, initial capitals, split rhyme, we need to add some information in the <teiHeader> as we did, e.g., with the normalization. Although the TEI Guidelines allows to use formal languages, such as CSS, we are using just an informal prose description. In any case this information it will be used later on to encode this features in the transcribed text.
+
+- Add a <encodingDesc> element within the <teiHeader>. (Remember that the order within the child elements in the <teiHeader> is important).
+- Add a <tagsDecl> element within <encodingDesc>.
+- Add a <rendition> element within <tagsDecl>. 
+- Add two attributes to the element <rendition>: xml:id and select.
+- The value of the xml:id attribute is uppercase; the value for select is hi. You should have now:
+
+	<rendition xml:id="uppercase" select="hi">. 
+
+This means that the element <hi> is used later in the encoding with the attribute rendition and the value uppercase (<hi rendition="#uppercase">)
+
+- Now add some text, an informal prose description to the element <rendition>, e.g.: "the first letter of each beginning word in every verse is capitalized". You should have something like: 
+
+	<rendition xml:id="uppercase" select="hi">The first letter of each beginning word in every verse is capitalized</rendition>
+
+- For each feature in the source text we need to add a <rendition> element with attributes of our choice. For now we are recording just 3 more features:
+
+first letter rotation: the value for xml:id is rotated; the value for select is hi.
+split rhyme: the value for xml:id is split_rhyme; the value for select is hi.
+radial design: the value for xml:id is radial; the value for select is lg.
+
+- Remember to add some information describing these features.
+
+// ENCODING (part 2).
+
+Once we recorded the source appearance in the TEI header, we can use in the text encoding the elements and attributes we have described.
+
+- For each first letter of every verse add the element <hi> with the attribute rendition and the value #uppercase. Notice the hash (#) in the attribute value. It refers to the xml:id of the element <rendition> in the TEI header (the editor oXygen will show you all possible values for the attribute rendition after typing the quotations marks: rendition="#...").
+
+- First letters are capitalized, but also rotated. Add next to the #uppercase value the #rotated value (You can add more than one value within an attribute. If you place the cursor after the first value within the quotations marks and hit space, oXygen will show you all possible values for the attribute rendition).
+
+- Proceed in the same way for the last letter (a) of each verse line. Use the <hi> element, the attribute rendition and the values #uppercase and #split_rhyme.
+
+- Add the attribute rendition with the value radial to the element lg, which groups the whole sonnet.
+
+// VISUALIZATION (Web browser).
+
+Take into consideration some of the steps from previous exercises.
+
+Simple visualization:
+
+- Go to the oXygen menu: Document > XML Document > Associate XSLT/CSS Stylesheet; Browse for the local file "visualize-tei-xml-soneto_simple.css" provided in the materials and add it. Oxygen will create a link in the TEI-XML document. (You can do it manually by copying and pasting the following instruction just before the <TEI> root element. You need to save the file provided in the materials in the same folder where you have your TEI-XML in order the instruction to work):
+ 
+	<?xml-stylesheet type="text/css" href="visualize-tei-xml-soneto_simple.css"?> 
+
+- Open your encoded TEI-XML file in the web browser (drag and drop the file into the browser may just work fine).
+
+- The last letter of each verse, a, is not shown. In the file “visualize-tei-xml-soneto_simple.css” you can change the CSS property in hi[rendition="#uppercase #split_rhyme"] to display it. (Remember always to save the changes and refresh the browser)
+
+Complex visualization:
+
+- Toggle the comment (<!--    -->) or delete the simple visualization instruction.
+- Add the CSS file: visualize-tei-xml-soneto_girandole.css
+- Open the TEI-XML file in the web browser (Remember to save the changes and refresh the browser).
+
+You can play around with the CSS stylesheet file in order to familiarize yourself with CSS properties and values: 
+
+- Change the number of degrees in "transform: rotate(-265deg)" (starting from line 16O).
+- Change size, color, rotation degree of the first-letters.
+- Let's have also a bit of fun!:  Toggle the comment (activate it) from lines 212 to 222. Comment tags in the CSS code require other syntax than in XML code. In CSS you can insert comments opening with slash (/) and asterisk (*) and closing with asterisk (*) and slash (/): /*    */.  You can manually remove them or use the "Toggle Comment" in oXygen.
+- If you hover over the girandole, it should start spinning!
+- Can you change the speed? 
+- Could you explain how the central A is displayed? 
+
+
+// TRANSCRIPTION (part 2).
+
+Transcribe from the 1st scan page of “5_0.Soneto-acrostico-1685.pdf” the paratexts, here the text situated to the left. You can transcribe it directly into oXygen if you prefer (see next step).
+
+
+// ENCODING (part 3) and ENCODING METADATA (part 2: <rendition>).
+
+Encoding:
+
+- Place the transcribed paratext within the <body> element, before the sonnet.
+- Tag the heading with <head> (Guidelines: contains any type of heading, for example the title of a section) and the paragraphs with <p>.
+- The page is divided in 2 sections (divisions): one for the paratexts and an other for the sonnet. So let's tag them with the element <div>:  
+    
+    <div><head>[...]</div>
+    <div><lg type="soneto" rendition="#radial">[...]</div>
+
+Encoding metadata:
+
+As we did in the previous "Encoding metadata part 1 <rendition>", we can add information about how these division are rendered in the original source. 
+
+- Add 2 more <rendition> elements within <tagsDecl>. 
+- Add the attributes to the element <rendition>: xml:id and select.
+- The values of the xml:id attributes are div-align-left and div-align-right respectively; the value for select is div in both cases.
+- Remember to add some information describing these features.
+- How would you encode the italics?
+
+Encoding:
+
+-Add the rendition attribute with the new values #div-align-left and #div-align-right to both <div>s.
+
+*Try again with the visualization to see the changes you included.
+
+
+// ENCODING METADATA (Part 3: <teiHeader>).
+
+Don't forget to add some bibliographic information to your file. Take into consideration some of the steps from previous exercises.
+
+- Use bibliographic information provided in the 2nd page of “5_0.Soneto-acrostico-1685.pdf”  (We could consider adding the 2nd page as a part of the <text> element. For now let's just use it for the <bibl> element).
+- Search in the TEI Guidelines for different attributes for <date>.
+
+// DID YOU FINISH ALREADY?
+
+Encode the metrical pattern of verse lines, i.e, which syllables are stressed:  
+
+CLA-ro-bla-SON-quea-LIEN-tas-U-na-VI-da 
+
+- Search in the TEI Guidelines for <metDecl>, <metSym>, @met, @rhyme,…
+- and check the automatic scansion project ADSO at < http://adso.gplsi.es/index.php/es/demostracion/ >. You can upload your sonnet transcription in TXT and download a TEI-XML file already encoded with the metrical pattern.
+- You can check out how all this encoding work can be implemented in a database  <http://goldenage.cervantesvirtual.com>, search, e.g., for all sonnets with the same metrical pattern.
+
+// DID YOU FINISH ALREADY (AGAIN)?
+
+Repeat the transcription and encoding process with the other acrostic sonnet provided: "5.3-Soneto-Acrostico-Maria-Luisa.jpg"
+
+
+* I provided you with a TEI-XML file already encoded “5.2-Soneto_Acrostico-1685-done!”. Feel free to have a look inside or ask me for help.

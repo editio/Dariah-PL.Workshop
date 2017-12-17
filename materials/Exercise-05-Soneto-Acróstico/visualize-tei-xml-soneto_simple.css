@@ -1,0 +1,132 @@
+/* CSS stylesheet for visualising TEI on the browser */
+
+/* José Luis Losada: Course's materials (Wrocław) · 30/11/2017 */
+
+TEI { width: 75%;
+		margin: 0 auto;
+font-size: 1.1em}
+
+/* HEADER */
+
+bibl title, editor, pubPlace, publisher, date, author {
+	
+	display: block;
+	color: maroon;
+	text-align: left;
+}
+
+fileDesc, titleStmt, publicationStmt, sourceDesc, profileDesc, respStmt, revisionDesc, item, normalization {
+	color: gray;
+  display: block;
+  margin: 10px;
+  border: 1px dotted olive ;
+  font: 10pt "Times New Roman";
+  padding: 2px;
+}
+
+titleStmt author, title, docAuthor {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  color: purple;
+}
+
+head, p, div {
+    display: block;
+    margin-bottom: 10px;
+    
+}
+
+encodingDesc {
+    display: none;
+    
+}
+
+/*body divs*/
+
+div[rendition="#div-align-left"] {
+    display: inline-block;
+    text-align: left;
+    width: 300px;
+    
+}
+
+div[rendition="#div-align-right"] {
+    display: inline-block;
+    width: 300px;
+    margin-left: 200px;
+    
+}
+
+
+/*Sonet*/
+
+lg[type="soneto"]::after{
+    
+/*Mostrar solo la girandola superpuesta    */
+/*
+    content: url("Soneto_Carlos_II2-short.jpg");
+    opacity: 1.06;
+*/
+
+/*    Mostralo debajo*/
+    
+    content: url("Soneto_Carlos_II2.jpg");
+    position: absolute;
+    left: 10%;
+    top: 100%;
+    }
+
+
+hi[rendition="#uppercase"] {
+    text-transform: uppercase;
+} 
+
+hi[rendition="#italic"] {
+    font-style: italic;
+}
+
+
+hi[rendition="#uppercase #split_rhyme"] {
+    display: none;
+    
+} 
+
+l {
+  display: block;
+}
+
+/*Sonet's First capital letter */
+
+l::first-letter { 
+
+ font-size:1.3em;
+ line-height:5%;
+}
+
+lg[type=cuarteto] {
+padding: 4px;	
+}
+
+lg[type=terceto] {
+padding: 4px;
+}
+
+/*Normalisation*/
+/*To show original and/or normalised reading */ 
+
+orig {display: none;}
+
+/*reg {display: none}*/
+
+
+/*Errors*/
+/*To show  original errors and/or corrections */ 
+
+sic {
+	display: none;
+}
+
+/*corr {
+	display: none;
+}*/

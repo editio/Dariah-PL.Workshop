@@ -1,0 +1,242 @@
+/* CSS stylesheet for visualising TEI on the browser */
+
+/* José Luis Losada: Course's materials (Wrocław) · 30/11/2017 */
+
+TEI { width: 70%; margin: 0 auto;}
+
+/* HEADER */
+
+bibl title, editor, pubPlace, publisher, date, author {
+	
+	display: block;
+	color: maroon;
+	text-align: left;
+}
+
+fileDesc, titleStmt, publicationStmt, sourceDesc, profileDesc, respStmt, respStmt name, respStmt resp, revisionDesc, item, normalization {
+	color: gray;
+  display: block;
+  margin: 10px;
+  border: 1px dotted olive ;
+  font: 10pt "Times New Roman";
+  padding: 2px;
+}
+
+titleStmt author, title, docAuthor {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  color: purple;
+}
+
+head, p, div {
+    display: block;
+    margin-bottom: 10px;
+    
+}
+
+encodingDesc {
+    display: none;
+    
+}
+
+/*TEXT*/
+
+
+div[rendition="#div-align-left"] {
+    display: block;
+    text-align: left;
+    width: 300px;
+    position: absolute;
+    top: 300px;
+    text-align: center;
+    
+}
+
+/*Sonet*/
+
+lg[type="soneto"]
+{
+    display: block;
+    border: 2px solid black;
+    border-radius: 60%;
+    width: 580px;
+    height: 580px;
+    position: absolute;
+    left: 45%;
+    top: 30%;
+}
+
+    
+/*to place the image below the transcription*/
+
+div[rendition="#div-align-left"]::after{
+    content: url("Soneto_Carlos_II2.jpg");
+    display: inline-block;
+    padding-top: 400px;
+        
+    }
+    
+    
+/*to overlap transcription with image*/
+
+/*
+    lg[type="soneto"]::after {
+    content: url("Soneto_Carlos_II2-short.jpg");
+    opacity: 0.30;
+}
+*/
+    
+l {
+  position: absolute;
+  width: 270px;
+  height: 1px;
+  left: 20px;
+  top: 290px;
+  transform-origin: right center;
+  font-size: 0.85em;   
+}
+
+hi[rendition="#uppercase #split_rhyme"] {
+    display: none;
+} 
+
+hi[rendition="#uppercase"] {
+    text-transform: uppercase;
+} 
+
+hi[rendition="#italic"] {
+    font-style: italic;
+}
+/*Sonet's First capital letter */
+
+/*only works with Safari, so see the other solution with  l hi[rendition="#uppercase"] */
+
+/*
+l::first-letter { 
+float:left; 
+font-size: 3em;
+color: gray; 
+-webkit-transform: rotate(-90deg);
+-webkit-transform-origin: 20% 40%;
+display: inline-block;
+
+}
+*/
+
+/*Rotated initial capitals*/
+
+l hi[rendition="#uppercase #rotated"] {
+
+text-transform: uppercase;
+float:left; 
+font-size: 3em;
+font-weight: bold;
+padding: 4px;
+color: black; 
+transform: rotate(-90deg);
+transform-origin: 20% 40%;
+display: inline-block;
+} 
+
+l[n="1"] hi[rendition="#uppercase #rotated"] {
+    
+font-size: 4em;
+} 
+
+/*to show the central A, using the selector ::after*/
+
+l[n="13"]::after{
+		content: "A";
+    position: absolute;
+    left: 90%;
+    top: -100%;
+    padding: -50px;
+    color: black;
+    font-size: 3em;
+    transform: rotate(-50deg);
+    transform-origin: 20% 40%;
+    display: inline-block;
+}
+
+/*Rotates every verse line to form the girandole*/
+
+l[n="1"] {
+transform: rotate(-265deg);
+}    
+l[n="2"] {
+transform: rotate(-232deg);
+}
+l[n="3"] {
+transform: rotate(-208deg);
+}
+l[n="4"] {
+transform: rotate(-180deg);
+}
+l[n="5"] {
+transform: rotate(-150deg);
+}
+l[n="6"] {
+transform: rotate(-128deg);
+}
+l[n="7"] {
+transform: rotate(-100deg);
+}
+l[n="8"] {
+transform: rotate(-80deg);
+}
+l[n="9"] {
+transform: rotate(-57deg);
+}
+l[n="10"] {
+transform: rotate(-30deg);
+}
+l[n="11"] {
+transform: rotate(-3deg);
+}
+l[n="12"] {
+transform: rotate(20deg);
+}
+l[n="13"] {
+transform: rotate(44deg);
+}
+l[n="14"] {
+transform: rotate(70deg);
+}
+
+
+/* Let's role it! */
+
+/*
+
+lg[type="soneto"]:hover {
+        
+animation:spin 50s linear infinite ;
+animation-iteration-count: 1;
+}
+
+@keyframes spin { 100% {
+    transform:rotate(-360deg); 
+    } }
+    
+    */
+
+/*Normalisation*/
+
+/*To show original and/or normalised reading */ 
+
+orig {display: none;}
+
+/*reg {display: none}*/
+
+
+/*Errors*/
+/*To show  original errors and/or corrections */ 
+
+sic {
+	display: none;
+}
+
+/*corr {
+	display: none;
+}*/

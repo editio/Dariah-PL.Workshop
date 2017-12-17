@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<?xml-stylesheet type="text/css" href="visualize-tei-xml-soneto_girandole.css"?>
+<!--<?xml-stylesheet type="text/css" href="visualize-tei-xml-soneto_simple.css"?>-->
+
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Soneto acróstico radial dedicado a Carlos II. Versión XML-TEI</title>
+            <principal>José Luis Losada Palenzuela</principal>
+         </titleStmt>
+
+         <publicationStmt>
+            <publisher>Course's materials (Wrocław)</publisher>
+            <date when="2017-11-27">27/11/2017</date>
+         </publicationStmt>
+
+         <sourceDesc>
+            <bibl>
+               <title type="main">Academia a que se dio asumpto la religiosa y catholica accion que
+                  el rey...</title>
+               <title>Soneto acróstico radial dedicado a Carlos II</title>
+               <author>Anónimo</author>
+               <pubPlace>Madrid</pubPlace>
+               <publisher>Sebastián de Armendáriz</publisher>
+               <date when="1685">1685</date>
+            </bibl>
+         </sourceDesc>
+
+      </fileDesc>
+      <encodingDesc>
+         <tagsDecl>
+            <rendition xml:id="uppercase" select="hi">Las primeras letras de cada verso van en
+               mayúsculas</rendition>
+            <rendition xml:id="rotated" select="hi">Las primeras letras de cada verso van giradas
+               -90º</rendition>
+            <rendition xml:id="split_rhyme" select="hi">Versos de cabo roto o rima partida, solo que
+               una única letra es compartida para el final de cada verso</rendition>
+            <rendition xml:id="radial" select="lg">Los versos del soneto están dispuesto de forma
+               radial, inscritos en una circunferencia</rendition>
+            <rendition xml:id="div-align-left" select="div">Disposición de las divisiones
+               (izquierda)</rendition>
+            <rendition xml:id="div-align-right" select="div">Disposición de las divisiones
+               (derecha)</rendition>
+            <rendition xml:id="italic" select="hi">Cursivas en los paratextos</rendition>
+            <!--Guidelines: If rendition is used to refer to a style definition, it is recommended that it not be used in conjunction with rend.-->
+         </tagsDecl>
+
+         <metDecl xml:id="metrics" type="met" pattern="((\+|\-)+)*">
+            <metSym value="+">sílaba tónica</metSym>
+            <metSym value="-">sílaba átona</metSym>
+         </metDecl>
+         <metDecl>
+            <p>El patrón métrico ha sido extraído automáticamente con el sistema de escansión del
+               proyecto ADSO <ref target=" http://adso.gplsi.es/index.php/es/demostracion/">
+                  http://adso.gplsi.es/index.php/es/demostracion/</ref>, pero necesita revisión.</p>
+         </metDecl>
+
+      </encodingDesc>
+   </teiHeader>
+
+   <text>
+      <body>
+         <div rendition="#div-align-left">
+            <head>
+               <hi rendition="#uppercase">Soneto acrostico</hi></head>
+            <p><hi rendition="#italic">Al Rey N. Señor (que Dios guarde) en la Religiosa accion de
+                  su constante zelo</hi></p>
+            <p>Demostrando con las letras de <hi rendition="#italic">Carlos de Austria</hi>: siendo
+               centro à sus catorze lineas la vltima bocal. A.</p>
+            <p>
+               <hi rendition="#italic">De vn aventurero.</hi></p>
+         </div>
+
+         <div rendition="#div-align-right">
+            <lg type="soneto" rendition="#radial">
+               <lg type="cuarteto">
+                  <l n="1" met="--+--+-+-+-"><hi rendition="#uppercase #rotated">C</hi>laro Blason,
+                     que alientas vna vid<hi rendition="#uppercase #split_rhyme">a</hi></l>
+                  <l n="2" met="-+---+---+-"><hi rendition="#uppercase #rotated">A</hi>lcides
+                     envidiado de la fam<hi rendition="#uppercase #split_rhyme">a</hi></l>
+                  <l n="3" met="-+-+-+---+-"><hi rendition="#uppercase #rotated">R</hi>odulfo ceda à
+                     ti, pues que su llam<hi rendition="#uppercase #split_rhyme">a</hi></l>
+                  <l n="4" met="--+--+---+-"><hi rendition="#uppercase #rotated">L</hi>a Religion la
+                     vè mas encendid<hi rendition="#uppercase #split_rhyme">a</hi></l>
+               </lg>
+
+               <lg type="cuarteto">
+                  <l n="5" met="-----+---+-"><hi rendition="#uppercase #rotated">O</hi>bsequiosa de
+                     Daphne, repetid<hi rendition="#uppercase #split_rhyme">a</hi></l>
+                  <l n="6" met="-+-+-+-+-+-"><hi rendition="#uppercase #rotated">S</hi>u no caduca
+                     hoja, sea Ram<hi rendition="#uppercase #split_rhyme">a</hi></l>
+                  <l n="7" met="-+---+-+-+-"><hi rendition="#uppercase #rotated">D</hi>upliquente
+                     laurel, la flor, y escam<hi rendition="#uppercase #split_rhyme">a</hi></l>
+                  <l n="8" met="-+--+-+++-+-"><hi rendition="#uppercase #rotated">E</hi>n premio de
+                     vna fè, que es tan crecid<hi rendition="#uppercase #split_rhyme">a</hi></l>
+               </lg>
+
+               <lg type="terceto">
+                  <l n="9" met="---+--+--+-"><hi rendition="#uppercase #rotated">A</hi>ctivo Apolo,
+                     al Circulo de plat<hi rendition="#uppercase #split_rhyme">a</hi></l>
+                  <l n="10" met="-+-+-+---+-"><hi rendition="#uppercase #rotated">V</hi>ictorias
+                     cante, que otro Coronist<hi rendition="#uppercase #split_rhyme">a</hi></l>
+                  <l n="11" met="--+-++---+-"><hi rendition="#uppercase #rotated">S</hi>uficiente no
+                     tiene la elocuenci<hi rendition="#uppercase #split_rhyme">a</hi></l>
+               </lg>
+
+               <lg type="terceto">
+                  <l n="12" met="+-+--+--++-"><hi rendition="#uppercase #rotated">T</hi>rono à Dios
+                     ofrecile con fè grat<hi rendition="#uppercase #split_rhyme">a</hi></l>
+                  <l n="13" met="-+-+---+-+-"><hi rendition="#uppercase #rotated">R</hi>etorno
+                     logres, que à tu prole assist<hi rendition="#uppercase #split_rhyme">a</hi></l>
+                  <l n="14" met="+-+--+---+-"><hi rendition="#uppercase #rotated">I</hi> descienda
+                     de ti Real Ascendenci<hi rendition="#uppercase #split_rhyme">a</hi></l>
+               </lg>
+            </lg>
+         </div>
+      </body>
+   </text>
+</TEI>
