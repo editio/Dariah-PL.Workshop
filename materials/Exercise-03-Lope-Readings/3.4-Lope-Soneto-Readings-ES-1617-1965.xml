@@ -17,16 +17,22 @@
             <date>14/10/2016</date>
          </publicationStmt>
          <sourceDesc>
-            <bibl>
-               <title>Sonety hiszpańskie</title>
-               <pubPlace>Londyn</pubPlace>
-               <publisher>Oficyna Poetów i Malarzy</publisher>
-               <date>1965</date>
-            </bibl>
             <listWit>
-               <witness xml:id="wit-1965-PL">1965-PL</witness>
-               <witness xml:id="wit-1617-O">1617-O</witness>
-            </listWit>            
+               <witness xml:id="wit-1965-PL">
+                  <bibl>
+                     <title>Sonety hiszpańskie</title>
+                     <pubPlace>Londyn</pubPlace>
+                     <publisher>Oficyna Poetów i Malarzy</publisher>
+                     <date>1965</date>
+                  </bibl></witness>
+               <witness xml:id="wit-1617-O">
+                  <bibl>
+                     <author>Lope de Vega Carpio</author>
+                     <title>La niña de la plata, Parte IX de Comedias de Lope de Vega</title>
+                     <pubPlace>Madrid</pubPlace>
+                     <date>1617</date>
+                  </bibl></witness>
+            </listWit>
          </sourceDesc>
       </fileDesc>
    </teiHeader>
@@ -81,7 +87,7 @@
                <l n="14">contad si son catorce y está hecho.</l>
             </lg>
          </lg>
-      
+
       </body>
    </text>
 </TEI>
